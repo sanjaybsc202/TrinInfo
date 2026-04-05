@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "TrinInfo Forum",
+    "slug": "trininfo-forum",
+    "scheme": "trininfo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
