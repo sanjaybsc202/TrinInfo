@@ -1,29 +1,20 @@
 import { Link } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Thread } from '@/types/models';
-import { Card, Muted, StatChip, SubHeading, useAppTheme } from '@/components/ui';
+import { Card, Muted } from '@/components/ui';
 
 export function ThreadCard({ thread }: { thread: Thread }) {
-  const { colors } = useAppTheme();
-
   return (
     <Card>
       <Link href={`/thread/${thread.id}`}>
-        <SubHeading>{thread.title}</SubHeading>
+        <Text style={{ fontWeight: '700', fontSize: 17 }}>{thread.title}</Text>
       </Link>
       <Muted>{thread.content}</Muted>
-      <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-        <StatChip label={`${thread.replyCount} replies`} />
-        <StatChip label={`${thread.likeCount} likes`} />
-        <StatChip label={new Date(thread.updatedAt).toLocaleDateString()} />
+      <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap' }}>
+        <Muted>Replies: {thread.replyCount}</Muted>
+        <Muted>Likes: {thread.likeCount}</Muted>
+        <Muted>Updated: {new Date(thread.updatedAt).toLocaleDateString()}</Muted>
       </View>
-      {thread.tags.length > 0 && (
-        <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-          {thread.tags.map((tag) => (
-            <Text key={tag} style={{ color: colors.primary, fontWeight: '600' }}>#{tag}</Text>
-          ))}
-        </View>
-      )}
     </Card>
   );
 }

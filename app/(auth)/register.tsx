@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Text } from 'react-native';
 import { z } from 'zod';
-import { AppButton, AppInput, Card, Heading, Muted, Page } from '@/components/ui';
+import { AppButton, AppInput, Card, Heading, Page } from '@/components/ui';
 
 const schema = z.object({
   username: z.string().min(3),
@@ -22,8 +22,7 @@ export default function RegisterScreen() {
   return (
     <Page>
       <Card>
-        <Heading>Create your account</Heading>
-        <Muted>Join the community and start meaningful conversations.</Muted>
+        <Heading>Register</Heading>
         <Controller control={control} name="username" render={({ field: { onChange, value } }) => <AppInput placeholder="Username" value={value} onChangeText={onChange} />} />
         {errors.username && <Text>{errors.username.message}</Text>}
         <Controller control={control} name="email" render={({ field: { onChange, value } }) => <AppInput placeholder="Email" value={value} onChangeText={onChange} />} />

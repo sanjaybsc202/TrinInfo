@@ -31,7 +31,6 @@ Cross-platform MVP forum app running from one codebase on iOS, Android, and Web.
 ## Scripts
 - `npm run typecheck`
 - `npm run lint`
-- `npm run doctor`
 
 ## Notes
 - Data is local mock data but organized for easy backend replacement.

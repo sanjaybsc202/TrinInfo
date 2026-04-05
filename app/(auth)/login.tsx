@@ -3,7 +3,7 @@ import { Link } from 'expo-router';
 import { Controller, useForm } from 'react-hook-form';
 import { Text, View } from 'react-native';
 import { z } from 'zod';
-import { AppButton, AppInput, Card, Heading, Muted, Page } from '@/components/ui';
+import { AppButton, AppInput, Card, Heading, Page } from '@/components/ui';
 import { useAuthStore } from '@/store/auth-store';
 
 const schema = z.object({
@@ -20,8 +20,7 @@ export default function LoginScreen() {
   return (
     <Page>
       <Card>
-        <Heading>Welcome back</Heading>
-        <Muted>Sign in to join discussions and continue your threads.</Muted>
+        <Heading>Login</Heading>
         <Controller control={control} name="identity" render={({ field: { onChange, value } }) => <AppInput placeholder="Email or username" value={value} onChangeText={onChange} />} />
         {errors.identity && <Text>{errors.identity.message}</Text>}
         <Controller control={control} name="password" render={({ field: { onChange, value } }) => <AppInput placeholder="Password" secureTextEntry value={value} onChangeText={onChange} />} />
